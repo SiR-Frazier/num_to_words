@@ -32,4 +32,14 @@ describe('#num_to_words') do
   it("returns a word for numbers between one thousand and nine thousand nine hundred ninety nine") do
     expect(word = Number.new(8760).to_word()).to(eq("eight thousand seven hundred sixty"))
   end
+  it("returns a word for numbers between ten thousand and ninety nine thousand nine hundred ninety nine") do
+    expect(word = Number.new(18760).to_word()).to(eq("eighteen thousand seven hundred sixty"))
+  end
+  it("returns a word for numbers between hundred thousand and nine hundred ninety nine thousand nine hundred ninety nine") do
+    expect(word = Number.new(180760).to_word()).to(eq("one hundred eighty thousand seven hundred sixty"))
+  end
+  # it("returns a word for numbers between one million and nine million nine hundred ninety nine thousand nine hundred ninety nine") do
+  #   expect(word = Number.new(9007000).to_word()).to(eq("nine million seven thousand"))
+  # end
+
 end

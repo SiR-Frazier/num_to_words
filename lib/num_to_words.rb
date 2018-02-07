@@ -13,7 +13,34 @@ class Number
 
     @multiples_of_ten = {10 => "ten", 20 => "twenty", 30 => "thirty", 40 => "fourty", 50 => "fifty", 60 => "sixty", 70 => "seventy", 80 => "eighty", 90 => "ninety"}
 
-    if (@number.digits.count == 4)
+    # if (@number.digits.count == 7)
+    #   digit_array = @number.digits.reverse()
+    #   dig1 = digit_array[0]
+    #   dig2 = digit_array[1]
+    #   dig3 = digit_array[2]
+    #   dig4 = digit_array[3]
+    #   dig5 = digit_array[4]
+    #   dig6 = digit_array[5]
+    #   dig7 = digit_array[6]
+    #   word = millions(dig1, dig2, dig3, dig4, dig5, dig6, dig7)
+    if (@number.digits.count == 6)
+      digit_array = @number.digits.reverse()
+      dig1 = digit_array[0]
+      dig2 = digit_array[1]
+      dig3 = digit_array[2]
+      dig4 = digit_array[3]
+      dig5 = digit_array[4]
+      dig6 = digit_array[5]
+      word = hundred_thousands(dig1, dig2, dig3, dig4, dig5, dig6)
+    elsif (@number.digits.count == 5)
+      digit_array = @number.digits.reverse()
+      dig1 = digit_array[0]
+      dig2 = digit_array[1]
+      dig3 = digit_array[2]
+      dig4 = digit_array[3]
+      dig5 = digit_array[4]
+      word = ten_thousands(dig1, dig2, dig3, dig4, dig5)
+    elsif (@number.digits.count == 4)
       digit_array = @number.digits.reverse()
       dig1 = digit_array[0]
       dig2 = digit_array[1]
@@ -37,6 +64,21 @@ class Number
     # word = eleven_to_nineteen.fetch(@number)
     word
     # word
+  end
+
+  # def millions(dig1, dig2, dig3, dig4, dig5, dig6, dig7)
+  #   millions = @digits.fetch(dig1) + " million " + hundred_thousands(dig2,dig3,dig4,dig5,dig6,dig7)
+  #   millions
+  # end
+
+  def hundred_thousands(dig1, dig2, dig3, dig4, dig5, dig6)
+    hundred_thousands = hundreds(dig1, dig2, dig3) + " thousand " + hundreds(dig4, dig5, dig6)
+    hundred_thousands
+  end
+
+  def ten_thousands(dig1, dig2, dig3, dig4, dig5)
+    ten_thousands = tens(dig1, dig2) + " thousand " + hundreds(dig3, dig4, dig5)
+    ten_thousands
   end
 
   def thousands(dig1, dig2, dig3, dig4)
